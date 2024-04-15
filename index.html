@@ -1,3 +1,5 @@
+<!-- Co-pilot written. Yay productivity! -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +30,16 @@
     </div>
     <script>
         const title = document.getElementById('title');
+        
+        // Check if title exists in sessionStorage
+        if (sessionStorage.getItem('title')) {
+            title.value = sessionStorage.getItem('title');
+            document.title = title.value;
+        }
+        
         title.addEventListener('input', () => {
             document.title = title.value;
+            sessionStorage.setItem('title', title.value);
         });
     </script>
 </body>
